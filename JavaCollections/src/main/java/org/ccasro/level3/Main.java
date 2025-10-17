@@ -44,8 +44,12 @@ public class Main {
         System.out.println("Enter DNI: ");
         String dni = sc.nextLine();
 
-        people.add(new Person(name,surname,dni));
-        System.out.println("Person added successfully");
+        try {
+            people.add(new Person(name, surname, dni));
+            System.out.println("Person added successfully");
+        } catch (IllegalArgumentException e){
+            System.out.println("Error: " + e.getMessage());
+        }
     }
 
     private static void showSorted(Comparator<Person> comparator, boolean reverse) {
